@@ -11,8 +11,20 @@ public class Task10Main {
     }
 
     static int numMin(int[] arr) {
-        //todo напишите здесь свою корректную реализацию этого метода, вместо существующей
-        return 0;
+        if (arr.length == 0) {
+            throw new IllegalArgumentException("Массив не должен быть пустым");
+        }
+        int minValue = arr[0];
+        int minIndex = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < minValue) {
+                minValue = arr[i];
+                minIndex = i;
+            } else if (arr[i] == minValue) {
+                minIndex = i; // Обновляем индекс на последний найденный минимальный элемент
+            }
+        }
+        return minIndex;
     }
 
 }
