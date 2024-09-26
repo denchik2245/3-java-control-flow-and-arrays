@@ -4,31 +4,31 @@ public class Task12Main {
     public static void main(String[] args) {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
         // например вот так:
-        /*
         int[] arr = {9, 11, 7, 8};
         selectionSort(arr);
         System.out.println(java.util.Arrays.toString(arr));
-         */
+
     }
 
     static void selectionSort(int[] arr) {
-        int n = arr.length; // Размер массива
+        if (arr == null || arr.length == 0) {
+            return;
+        }
 
-        // Проходим по всем элементам массива
-        for (int i = 0; i < n - 1; i++) {
-            int minIndex = i; // Индекс минимального элемента
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = i;
 
-            // Ищем минимальный элемент в оставшейся части массива
-            for (int j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[minIndex]) {
-                    minIndex = j; // Обновляем индекс минимального элемента
+                    minIndex = j;
                 }
             }
 
-            // Меняем местами текущий элемент и минимальный найденный элемент
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = temp;
+            if (minIndex != i) {
+                int temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
         }
     }
 }

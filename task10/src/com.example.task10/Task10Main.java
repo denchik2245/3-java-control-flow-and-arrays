@@ -21,7 +21,7 @@ public class Task10Main {
                 minValue = arr[i];
                 minIndex = i;
             } else if (arr[i] == minValue) {
-                minIndex = i; // Обновляем индекс на последний найденный минимальный элемент
+                minIndex = i;
             }
         }
         return minIndex;
